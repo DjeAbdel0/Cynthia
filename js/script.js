@@ -1,58 +1,81 @@
 const chapters = {
-  contrat: {
-    titre: "Proposition de contrat",
-    description: "Tu cherches l'amour? Ca tombe bien, Ici la jeune et charmante demoiselle le cherche aussi. La vraie question est: Es-tu a la hauteur",
+  debut: {
+    titre: "Cythia Cherche l'amour",
+    description: "Tu cherches l'amour? Ca tombe bien, Ici la jeune et charmante demoiselle le cherche aussi. La vraie question est: Es-tu a la hauteur?",
     image: "./assets/foto2cynthia.png",
     boutons: [{
-        titre: "Accepter le contrat",
-        destination: "match",
+        titre: "Je suis pret",
+        destination: "premiereQ",
       },
       {
-        titre: "Décliner et poursuivre tes études.",
-        destination: "mcdo",
+        titre: "Je suis en couple",
+        destination: "couple",
       },
     ],
   },
-  mcdo: {
-    titre: "Echec",
-    image: "./assets/img/macdonalds.jpg",
-    description: "Malheureusement, tu échoues lamentablement à l'école. Tu gardes un regret éternel pour avoir refusé ce contrat.",
+  couple: {
+    titre: "Ouf",
+    image: "",
+    description: "Bonne réponse sinon on t'aurais snitch",
     boutons: [{
       titre: "Retour",
-      destination: "contrat",
+      destination: "debut",
     }, ],
   },
-  match: {
-    titre: "Premier match",
-    description: "Après avoir choisi de rejoindre le Real Madrid, tu te retrouves sur le banc des remplaçants lors de ton premier match. Le match est intense, mais l'entraîneur ne t'a pas encore fait entrer.",
+  premiereQ: {
+    titre: "Premiere question",
+    description: "Es-tu es un homme sans vice? C'est vrm vrm important mon frérot",
     image: "./assets/img/match.jpg",
     boutons: [{
-        titre: "Demander au coach de te faire rentrer sur le terrain.",
-        destination: "confiance",
+        titre: "Bien sur",
+        destination: "DeuxiemeQ",
       },
       {
-        titre: "Attendre patiemment que le coach décide de te faire entrer de lui-même.",
-        destination: "patience",
+        titre: "hahaha ca existe??",
+        destination: "DeuxiemeQ",
       },
     ],
   },
-  confiance: {
-    titre: "Gagner la confiance de tous",
-    description: "Tu rentre à  la 2ème mi-temps. Tu fais un bon match et tu commence a prendre tes aises. Tu es complètement épuisé à la fin du match.",
+  DeuxiemeQ: {
+    titre: "Deuxieme question",
+    description: "Es-tu un homme honnête?",
     image: "./assets/img/confiance.webp",
     boutons: [{
       titre: "Prochain",
-      destination: "victoire",
+      destination: "troisiemeQ",
+    },
+    {
+      titre: "hahaha ca existe??",
+      destination: "troisiemeQ",
     }, ],
   },
-  patience: {
-    titre: "Faire preuve de patience",
-    description: "Tu as choisi d'attendre patiemment que le coach décide de te faire entrer. Il te fait rentrer a la 82ème minute. C'est le temps de leur montrer ton talent",
-    image: "./assets/img/patience.jpg",
+  troisiemeQ: {
+    titre: "Troisième question",
+    description: "Troisième question",
+    image: "./assets/img/match.jpg",
     boutons: [{
-      titre: "Prochain match",
-      destination: "victoire",
-    }, ],
+        titre: "Bien sur",
+        destination: "QuatrièmeQ",
+      },
+      {
+        titre: "hahaha ca existe??",
+        destination: "QuatrièmeQ",
+      },
+    ],
+  },
+  QuatrièmeQ: {
+    titre: "Troisième question",
+    description: "Troisième question",
+    image: "./assets/img/match.jpg",
+    boutons: [{
+        titre: "Bien sur",
+        destination: "CinquièmeQ",
+      },
+      {
+        titre: "hahaha ca existe??",
+        destination: "CinquièmeQ",
+      },
+    ],
   },
   victoire: {
     titre: "La Victoire",
@@ -112,7 +135,7 @@ const chapters = {
     }, ],
     boutons: [{
       titre: "Retour",
-      destination: "contrat",
+      destination: "debut",
     }, ],
   },
   bravo: {
@@ -219,7 +242,7 @@ function goToChapter(chapitre) {
 
 
 if(localStorage.getItem("chapStored") === null) {
-  goToChapter("contrat");
+  goToChapter("debut");
 }else {
   goToChapter(localStorage.getItem("chapStored"));
 }
@@ -229,7 +252,7 @@ recommencer.addEventListener("click", function() {
   localStorage.setItem("chapStored", "");
   localStorage.setItem("twist", "");
   localStorage.setItem("mute", "")
-  goToChapter("contrat");
+  goToChapter("debut");
 })
 
 mute.addEventListener("click", function() {
