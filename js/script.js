@@ -1,8 +1,8 @@
 const chapters = {
   contrat: {
     titre: "Proposition de contrat",
-    description: "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tends une lettre contenant un contrat professionnel avec le club.",
-    image: "./assets/img/contract.jpg",
+    description: "Tu cherches l'amour? Ca tombe bien, Ici la jeune et charmante demoiselle le cherche aussi. La vraie question est: Es-tu a la hauteur",
+    image: "./assets/foto2cynthia.png",
     boutons: [{
         titre: "Accepter le contrat",
         destination: "match",
