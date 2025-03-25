@@ -1,170 +1,141 @@
 const chapters = {
   debut: {
-    titre: "Cythia Cherche l'amour",
-    description: "Tu cherches l'amour? Ca tombe bien, Ici la jeune et charmante demoiselle le cherche aussi. La vraie question est: Es-tu a la hauteur?",
+    titre: "Cynthia Cherche l'amour",
+    description: "Tu cherches l'amour ? Ça tombe bien, ici la jeune et charmante demoiselle le cherche aussi. La vraie question est : Es-tu à la hauteur ?",
     image: "./assets/foto2cynthia.png",
     boutons: [{
-        titre: "Je suis pret",
-        destination: "premiereQ",
-      },
-      {
-        titre: "Je suis en couple",
-        destination: "couple",
-      },
+      titre: "Je suis prêt",
+      destination: "premiereQ",
+    },
+    {
+      titre: "Je suis en couple",
+      destination: "couple",
+    },
     ],
   },
   couple: {
     titre: "Ouf",
-    image: "",
-    description: "Bonne réponse sinon on t'aurais snitch",
+    image: "./assets/couple.webp",
+    description: "Qu'est-ce que tu fais là alors ? Bouge de là !",
     boutons: [{
       titre: "Retour",
       destination: "debut",
-    }, ],
+    },],
   },
   premiereQ: {
-    titre: "Premiere question",
-    description: "Es-tu es un homme sans vice? C'est vrm vrm important mon frérot",
-    image: "./assets/img/match.jpg",
+    titre: "Première question",
+    description: "Es-tu un homme sans vice ? C'est vraiment, vraiment important mon frérot.",
+    image: "./assets/sincere.webp",
     boutons: [{
-        titre: "Bien sur",
-        destination: "DeuxiemeQ",
-      },
-      {
-        titre: "hahaha ca existe??",
-        destination: "DeuxiemeQ",
-      },
+      titre: "Bien sûr",
+      destination: "DeuxiemeQ",
+      correct: true, 
+    },
+    {
+      titre: "Hahaha, ça existe ??",
+      destination: "DeuxiemeQ",
+      correct: false, 
+    },
     ],
   },
   DeuxiemeQ: {
-    titre: "Deuxieme question",
-    description: "Es-tu un homme honnête?",
-    image: "./assets/img/confiance.webp",
+    titre: "Deuxième question",
+    description: "Elle fait une blague pourrie, tu...",
+    image: "./assets/drole.webp",
     boutons: [{
-      titre: "Prochain",
+      titre: "Rigoles",
       destination: "troisiemeQ",
+      correct: true, 
     },
     {
-      titre: "hahaha ca existe??",
+      titre: "Rigoles pas",
       destination: "troisiemeQ",
-    }, ],
+      correct: false, 
+    },
+    ],
   },
   troisiemeQ: {
     titre: "Troisième question",
-    description: "Troisième question",
-    image: "./assets/img/match.jpg",
+    description: "Elle te demande de choisir entre une soirée tranquille à la maison ou une soirée avec des amis. Tu choisis :",
+    image: "./assets/soiree.webp",
     boutons: [{
-        titre: "Bien sur",
-        destination: "QuatrièmeQ",
-      },
-      {
-        titre: "hahaha ca existe??",
-        destination: "QuatrièmeQ",
-      },
+      titre: "Netflix",
+      destination: "QuatrièmeQ",
+      correct: true, 
+    },
+    {
+      titre: "Go sortir",
+      destination: "QuatrièmeQ",
+      correct: false, 
+    },
     ],
   },
   QuatrièmeQ: {
-    titre: "Troisième question",
-    description: "Troisième question",
-    image: "./assets/img/match.jpg",
+    titre: "Quatrième question",
+    description: "Elle te dit : je suis fatiguée, tu réponds :",
+    image: "./assets/fatigue.webp",
     boutons: [{
-        titre: "Bien sur",
-        destination: "CinquièmeQ",
-      },
-      {
-        titre: "hahaha ca existe??",
-        destination: "CinquièmeQ",
-      },
+      titre: "Le canapé t'a épuisée ?",
+      destination: "CinquièmeQ",
+      correct: true, 
+    },
+    {
+      titre: "Cool",
+      destination: "CinquièmeQ",
+      correct: false, 
+    },
     ],
   },
-  victoire: {
-    titre: "La Victoire",
-    description: "Félicitations, ton équipe a remporté le match ! Tu as contribué à la victoire de l'équipe avec 1 but, et maintenant plusieurs choix s'offrent à toi. Que vas-tu faire ensuite ?",
-    image: "./assets/img/victoire.jpg",
+  CinquièmeQ: {
+    titre: "Last but not the least",
+    description: "Elle te demande si elle a grossi. Ta réponse ?",
+    image: "./assets/grossi.webp",
     boutons: [{
-        titre: "S'entraîner pour s'améliorer davantage.",
-        destination: "entrainement",
-      },
-      {
-        titre: "Prendre un peu de repos pour récupérer.",
-        destination: "repos",
-      },
-      {
-        titre: "Célébrer la victoire avec l'équipe.",
-        destination: "fete",
-      },
+      titre: "t'es parfate",
+      destination: "resultat",
+      correct: true, 
+    },
+    {
+      titre: "La gravité, tu sais...",
+      destination: "resultat",
+      correct: false, 
+    },
     ],
   },
-  entrainement: {
-    titre: "Entraînement Intensif",
-    image: "./assets/img/entrainement.jpg",
-    description: "Pour devenir un meilleur joueur, tu décides de t'engager dans un programme d'entraînement intensif. Cela nécessite un dévouement total et des heures d'efforts sur le terrain. ",
+  resultat: {
+    titre: "Fini!!",
+    description: "On a comptabilisé tes réponses, allons voir les résultats.",
+    image:  "./assets/resultat.webp",
     boutons: [{
-      titre: "Prochain match",
-      destination: "matchSuiv",
-    }, ],
-    twist: 1,
-  },
-  repos: {
-    titre: "Un Repos Bien Mérité",
-    image: "./assets/img/repos.jpg",
-    description: "Après l'effort, le réconfort. Tu prends le temps de te reposer et de récupérer de l'intensité du match. Allez dormir, il y a un autre match demain.",
-    boutons: [{
-      titre: "Prochain match",
-      destination: "matchSuiv",
-    }, ],
-    twist: 2,
-  },
-  fete: {
-    titre: "Fêter la Victoire",
-    image: "./assets/img/fete.jpg",
-    description: "C'est l'heure de la fête ! Tu as célébré la victoire toute la nuit. Allez dormir, il y a un autre match demain.",
-    boutons: [{
-      titre: "Prochain match",
-      destination: "matchSuiv",
-    }, ],
-    twist: 3,
-  },
-  matchSuiv: {
-    titre: "Grand moment",
-    description: "Un joueur vient de se blesser, le coach décide de te faire rentrer. Tu commences à t'échauffer.",
-    image: "./assets/img/matchSuiv.jpg",
-    boutons: [{
-      titre: "remplacement",
+      titre: "Go!!",
       destination: "bravo",
-    }, ],
-    boutons: [{
-      titre: "Retour",
-      destination: "debut",
-    }, ],
+    },],
   },
   bravo: {
     titre: "IN-CRO-YA-BLE",
-    image: "./assets/img/bravo.jpg",
+    image: "./assets/bravo.webp",
     gif: "Ronaldo_Juv.gif",
     video: "./assets/video/Ronaldo.mp4",
-    description: "Félicitations, ta détermination et ton acharnement à t'entraîner ont porté leurs fruits. Grâce à tes efforts, tu as joué un rôle décisif dans la victoire de ton équipe lors du match. Continue à travailler dur pour atteindre de nouveaux sommets dans ta carrière sportive !",
+    description: "Félicitations ! Tu as répondu correctement à toutes les questions ! Ta sagesse et ton charme t'ont permis de briller tout au long du jeu. Félicitations, tu es prêt à conquérir le cœur de Cynthia ! 🌟",
   },
   moyen: {
     titre: "Pas mal",
-    image: "./assets/img/moyen.jpg",
-    gif: "Ronaldo_suii.gif",
-    video: "./assets/video/Haaland.mp4",
-    description: "Bravo ! Avec une performance exceptionnelle sur le terrain aujourd'hui, tu as prouvé que même après une bonne nuit de repos, ton talent naturel brille toujours. Ton jeu exceptionnel a grandement contribué à la victoire de ton équipe. Continue à donner le meilleur de toi-même sur le terrain !",
+    image: "./assets/presque.webp",
+    description: "Pas mal ! Tu as fait un bon travail, mais quelques petites erreurs t'ont empêché d'atteindre la perfection. Mais ne t'inquiète pas, avec un peu plus de pratique, tu seras au top la prochaine fois ! 💪",
   },
-  blessure: {
-    titre: "Quel dommage!",
-    image: "./assets/img/blessure.jpg",
-    description: "Malgré les déceptions et les dépressions Suite à la pression, que chacun d'entre nous ressent Malgré la répression et les oppressions Les discriminations, puis les arrestations Malgré les provocations, les incarcérations Le manque de compréhension, les peurs et les pulsions Leur désir, de nous maintenir la tête sous l'eau Transcende ma motivation, nourrit mon ambition, on n'est pas condamné à l'échec",
-   
+  out: {
+    titre: "Quel dommage !",
+    image: "./assets/out.webp",
+    description: "Quel dommage... Il semble que tu n'aies pas tout à fait réussi à impressionner Cynthia cette fois-ci, mais ce n'est pas la fin du monde. Tu peux toujours essayer à nouveau et améliorer ta performance ! Il n'y a pas de honte à se relever après un échec. 💔",
   },
 };
 
+let count = 0;
 let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 let jeu = document.querySelector(".jeu");
-const ziif = new  Audio("./assets/son/son_btn.wav");
+const ziif = new Audio("./assets/son/son_btn.wav");
 let recommencer = document.getElementById("reset");
 let mute = document.getElementById("muteCheckbox");
 
@@ -180,7 +151,7 @@ function goToChapter(chapitre) {
     ziif.play();
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
-    
+
     const boutons = document.querySelector(".boutons");
     while (boutons.firstChild) {
       boutons.removeChild(boutons.firstChild);
@@ -195,13 +166,13 @@ function goToChapter(chapitre) {
       videoMp4.loop = true;
       videoMp4.play();
       mediaWrapper.appendChild(videoMp4)
-    } 
-    else{
+    }
+    else {
       let imageElement = document.createElement("img");
       imageElement.src = obj.image;
       mediaWrapper.appendChild(imageElement)
     }
-  
+
 
     if (obj.boutons && obj.boutons.length > 0) {
       for (let i = 0; i < obj.boutons.length; i++) {
@@ -210,6 +181,14 @@ function goToChapter(chapitre) {
         nouveauBtn.textContent = obj.boutons[i].titre;
         nouveauBtn.addEventListener("click", () => {
           let chapitreActuel = obj.boutons[i].destination;
+          if (obj.boutons[i].hasOwnProperty('correct')) {
+            if (obj.boutons[i].correct) {
+              count += 1;  // Réponse correcte
+            } 
+          }
+
+          console.log("Score actuel: " + count); 
+
           goToChapter(chapitreActuel);
         });
 
@@ -217,50 +196,41 @@ function goToChapter(chapitre) {
       }
     }
 
-    if (chapitre === "entrainement") {
-      twist = 1;
-      localStorage.setItem("twist" , 1)
-    } else if (chapitre === "repos") {
-      twist = 2;
-      localStorage.setItem("twist" , 2)
-    } else if (chapitre === "fete") {
-      twist = 3;
-      localStorage.setItem("twist" , 3)
-    }
 
-    if (chapitre === "matchSuiv") {
-      if (twist === 1) {
+    if (chapitre === "resultat") {
+      if (count === 5) {
         obj.boutons[0].destination = "bravo";
-      } else if (twist === 2) {
+      } else if (count >=2 &&  count < 5) {
         obj.boutons[0].destination = "moyen";
-      } else if (twist === 3) {
-        obj.boutons[0].destination = "blessure";
+      } else if (count <2) {
+        obj.boutons[0].destination = "out";
       }
     }
   }
 }
 
 
-if(localStorage.getItem("chapStored") === null) {
+if (localStorage.getItem("chapStored") === null) {
   goToChapter("debut");
-}else {
+} else {
   goToChapter(localStorage.getItem("chapStored"));
 }
 
 
-recommencer.addEventListener("click", function() {
+recommencer.addEventListener("click", function () {
   localStorage.setItem("chapStored", "");
   localStorage.setItem("twist", "");
   localStorage.setItem("mute", "")
   goToChapter("debut");
+  count = 0;
 })
 
-mute.addEventListener("click", function() {
-  if(mute.checked){
-    ziif.volume= 0;
+mute.addEventListener("click", function () {
+  if (mute.checked) {
+    ziif.volume = 0;
     localStorage.setItem("mute", "Muted")
-  }else {
-    ziif.volume= 0.25;
+  } else {
+    ziif.volume = 0.25;
     localStorage.setItem("mute", "Unmuted")
   }
 })
