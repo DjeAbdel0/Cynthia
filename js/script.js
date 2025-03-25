@@ -147,7 +147,6 @@ function goToChapter(chapitre) {
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
-    ziif.play();
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
 
