@@ -114,6 +114,8 @@ const chapters = {
   bravo: {
     titre: "IN-CRO-YA-BLE",
     image: "./assets/bravo.webp",
+    gif: undefined,
+    video: undefined,
     description: "Félicitations ! Tu as répondu correctement à toutes les questions ! Ta sagesse et ton charme t'ont permis de briller tout au long du jeu. Félicitations, tu es prêt à conquérir le cœur de Cynthia ! 🌟",
   },
   moyen: {
@@ -156,10 +158,19 @@ function goToChapter(chapitre) {
 
     let mediaWrapper = document.getElementById('media');
     mediaWrapper.innerHTML = '';
-
-    let imageElement = document.createElement("img");
-    imageElement.src = obj.image;
-    mediaWrapper.appendChild(imageElement)
+    if (obj.video != undefined) {
+      let videoMp4 = document.createElement("video");
+      videoMp4.src = obj.video;
+      videoMp4.volume = 0;
+      videoMp4.loop = true;
+      videoMp4.play();
+      mediaWrapper.appendChild(videoMp4)
+    }
+    else {
+      let imageElement = document.createElement("img");
+      imageElement.src = obj.image;
+      mediaWrapper.appendChild(imageElement)
+    }
 
 
 
