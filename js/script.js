@@ -29,12 +29,12 @@ const chapters = {
     boutons: [{
       titre: "Bien sûr",
       destination: "DeuxiemeQ",
-      correct: true, 
+      correct: true,
     },
     {
       titre: "Hahaha, ça existe ??",
       destination: "DeuxiemeQ",
-      correct: false, 
+      correct: false,
     },
     ],
   },
@@ -45,12 +45,12 @@ const chapters = {
     boutons: [{
       titre: "Rigoles",
       destination: "troisiemeQ",
-      correct: true, 
+      correct: true,
     },
     {
       titre: "Rigoles pas",
       destination: "troisiemeQ",
-      correct: false, 
+      correct: false,
     },
     ],
   },
@@ -61,12 +61,12 @@ const chapters = {
     boutons: [{
       titre: "Netflix",
       destination: "QuatrièmeQ",
-      correct: true, 
+      correct: true,
     },
     {
       titre: "Go sortir",
       destination: "QuatrièmeQ",
-      correct: false, 
+      correct: false,
     },
     ],
   },
@@ -77,12 +77,12 @@ const chapters = {
     boutons: [{
       titre: "Le canapé t'a épuisée ?",
       destination: "CinquièmeQ",
-      correct: true, 
+      correct: true,
     },
     {
       titre: "Cool",
       destination: "CinquièmeQ",
-      correct: false, 
+      correct: false,
     },
     ],
   },
@@ -93,19 +93,19 @@ const chapters = {
     boutons: [{
       titre: "t'es parfate",
       destination: "resultat",
-      correct: true, 
+      correct: true,
     },
     {
       titre: "La gravité, tu sais...",
       destination: "resultat",
-      correct: false, 
+      correct: false,
     },
     ],
   },
   resultat: {
     titre: "Fini!!",
     description: "On a comptabilisé tes réponses, allons voir les résultats.",
-    image:  "./assets/resultat.webp",
+    image: "./assets/resultat.webp",
     boutons: [{
       titre: "Go!!",
       destination: "bravo",
@@ -114,8 +114,6 @@ const chapters = {
   bravo: {
     titre: "IN-CRO-YA-BLE",
     image: "./assets/bravo.webp",
-    gif: "Ronaldo_Juv.gif",
-    video: "./assets/video/Ronaldo.mp4",
     description: "Félicitations ! Tu as répondu correctement à toutes les questions ! Ta sagesse et ton charme t'ont permis de briller tout au long du jeu. Félicitations, tu es prêt à conquérir le cœur de Cynthia ! 🌟",
   },
   moyen: {
@@ -135,7 +133,6 @@ let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 let jeu = document.querySelector(".jeu");
-const ziif = new Audio("./assets/son/son_btn.wav");
 let recommencer = document.getElementById("reset");
 let mute = document.getElementById("muteCheckbox");
 
@@ -159,19 +156,11 @@ function goToChapter(chapitre) {
 
     let mediaWrapper = document.getElementById('media');
     mediaWrapper.innerHTML = '';
-    if (obj.video != undefined) {
-      let videoMp4 = document.createElement("video");
-      videoMp4.src = obj.video;
-      videoMp4.volume = 0;
-      videoMp4.loop = true;
-      videoMp4.play();
-      mediaWrapper.appendChild(videoMp4)
-    }
-    else {
-      let imageElement = document.createElement("img");
-      imageElement.src = obj.image;
-      mediaWrapper.appendChild(imageElement)
-    }
+
+    let imageElement = document.createElement("img");
+    imageElement.src = obj.image;
+    mediaWrapper.appendChild(imageElement)
+
 
 
     if (obj.boutons && obj.boutons.length > 0) {
@@ -184,10 +173,10 @@ function goToChapter(chapitre) {
           if (obj.boutons[i].hasOwnProperty('correct')) {
             if (obj.boutons[i].correct) {
               count += 1;  // Réponse correcte
-            } 
+            }
           }
 
-          console.log("Score actuel: " + count); 
+          console.log("Score actuel: " + count);
 
           goToChapter(chapitreActuel);
         });
@@ -200,9 +189,9 @@ function goToChapter(chapitre) {
     if (chapitre === "resultat") {
       if (count === 5) {
         obj.boutons[0].destination = "bravo";
-      } else if (count >=2 &&  count < 5) {
+      } else if (count >= 2 && count < 5) {
         obj.boutons[0].destination = "moyen";
-      } else if (count <2) {
+      } else if (count < 2) {
         obj.boutons[0].destination = "out";
       }
     }
@@ -225,12 +214,3 @@ recommencer.addEventListener("click", function () {
   count = 0;
 })
 
-mute.addEventListener("click", function () {
-  if (mute.checked) {
-    ziif.volume = 0;
-    localStorage.setItem("mute", "Muted")
-  } else {
-    ziif.volume = 0.25;
-    localStorage.setItem("mute", "Unmuted")
-  }
-})
